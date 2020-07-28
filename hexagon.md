@@ -1,4 +1,4 @@
-# infomatika-test
+# Hexagon
 ![alt text](hexagon.jpg)
 
 Требуется сверстать HTML страницу на основе рисунка.
@@ -8,4 +8,4 @@
 ***
 Страница должна быть на всю ширину экрана браузера. 
 
-**src:** <a src=https://github.com/some-yummy-nick/infomatika-test> some-yummy-nick </a>
+**src:** [some-yummy-nick](https://github.com/some-yummy-nick/infomatika-test)
