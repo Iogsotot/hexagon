@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    /* font-size: 10px; */
+  background-color: rgb(180, 180, 219);
+}
+
+.hex__list {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+    margin: 300px auto;
+
+    list-style-type: none;
+}
+
+.hex__item {
+    position: relative;
+    background: white;
+    
+    flex-shrink: 0; /* не даёт кукожить мои гексагончики*/
+
+    height: 227px;
+    width: 135px;
+    box-sizing: border-box;
+    margin: 15px 40px;
+
+    border: 10px solid white;
+    border-radius: 10px;
+    
+    transition: all 400ms;
+}
+
+.hex__item:before,
+.hex__item:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    
+    height: 100%;
+    width: 100%;
+
+    background: inherit;
+    border: inherit;
+    border-radius: inherit;
+}
+.hex__item:before {
+    transform: rotate(60deg);
+}
+.hex__item:after {
+    transform: rotate(-60deg);
+}
+
+.hex__item--mini {
+    height: 92px;
+    width: 60px; 
+}
+
+.hex__item--medium {
+    height: 126px;
+    width: 80px;
+}
+
+.hex__item--medium {
+    align-self: flex-end;
+    background-color: rgba(238, 130, 238, 0.534);
+}
+
+.hex__item--mini {
+    align-self: flex-end;
+    background-color: rgba(131, 132, 196, 0.61);
+}
+
+li:nth-of-type(1) {
+    transform: translateY(-250px);
+}
+
+li:nth-of-type(2) {
+    transform: translateY(-165px);
+}
+
+.hex__strip {
+    position: relative;
+    background: white;
+    
+    height: 120px;
+    width: 100px;
+    box-sizing: border-box;
+    margin: 15px 40px;
+
+    border: 10px solid white;
+    border-radius: 10px;
+    
+    transition: all 400ms;
+}
+
+.strip--left {
+    transform: skewX(-30deg);
+}
+
+.strip--right {
+    transform: skewX(-30deg) translateY(110px);
+    margin-left: 100px;
+}
+
+li:nth-of-type(6) {
+    transform: translateY(20px);
+}
+
+li:nth-of-type(7) {
+    transform: translateY(60px);
+}
+
+.hex__content {
+    position: absolute;
+    z-index: 1;
+}
