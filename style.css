@@ -4,9 +4,45 @@
 }
 
 body {
-  /* font-size: 10px; */
+  font-size: 14px;
   background-color: rgb(180, 180, 219);
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+.nav__list {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+
+  list-style-type: none;
+}
+
+.nav__link, .hex__link {
+  display: inline-block;
+
+  white-space: nowrap;
+  text-decoration: none;
+  color: white;
+}
+
+.nav__item {
+  
+  padding: 20px;
+}
+
+.nav__link::first-letter {
+  text-transform: capitalize;
+}
+
+.nav__link__entry {
+  text-transform: capitalize;
+}
+
+.nav__item--uppercase {
+  text-transform: uppercase;
+}
+
 
 .hex__list {
   display: grid;
