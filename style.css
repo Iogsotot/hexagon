@@ -34,8 +34,8 @@ body {
 }
 
 .circle--little {
-  height: 31rem;
-  width: 31rem;
+  height: 31.6rem;
+  width: 31.6rem;
 
   margin-left:-15.5rem; 
   margin-top:-15.5rem; 
@@ -104,8 +104,8 @@ body {
   transition: all 400ms;
 }
 
-.hex__item:before,
-.hex__item:after {
+.hex__item::before,
+.hex__item::after {
   content: "";
   position: absolute;
   top: -10px;
@@ -118,25 +118,21 @@ body {
   border: inherit;
   border-radius: inherit;
 }
-.hex__item:before {
+.hex__item::before {
   transform: rotate(60deg);
 }
-.hex__item:after {
+.hex__item::after {
   transform: rotate(-60deg);
 }
 
 /* выше идёт отрисовка гексагонов */
 
 .hex {
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 1024px;
-  height: 700px;
-
-  margin-left: -512px;
-  margin-top: -350px; */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .hex__list {
@@ -144,12 +140,13 @@ body {
   grid-template-columns: 9rem 1.5rem 4rem 1.5rem 2rem 5.3rem 1.5rem 0.5rem 4rem 9rem 4rem 0.5rem 1.5rem 5.3rem 2rem 1.5rem 4rem 1.5rem 9rem;
   grid-template-rows: 4rem 2.11rem 2.11rem 4.22rem 3.28rem 3.28rem 4.22rem 2.11rem 2.11rem 4rem;
   justify-content: center;
-  /* grid-column-gap: 1.5rem; */
 
-  /* height: 400px; */
-  
-  /* margin: 150px auto; */
   list-style-type: none;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hex__item--mini {
@@ -167,7 +164,7 @@ body {
   background: white;
 
   height: 7.567rem;
-  /* width: 100px; */
+  /* width: 100%; */
   transform: skewX(-30deg);
   box-sizing: border-box;
 
@@ -175,6 +172,34 @@ body {
   border-radius: 10px;
 
   transition: all 400ms;
+}
+
+.hex__strip__content {
+  position: absolute;
+  background: inherit;
+  top: -10px;
+
+  height: inherit;
+  width: 1500px;
+  transform: skewX(30deg);
+  box-sizing: border-box;
+
+  border: inherit;
+  border-radius: inherit;
+
+  transition: inherit;
+}
+
+.hex__strip__content--left {
+  right: 20px;
+  border-right: none;
+  text-align: right;
+}
+
+.hex__strip__content--right {
+ left: 35px;
+ border-left: none;
+  text-align: left;
 }
 
 .hex__item--mini--right {
@@ -195,11 +220,13 @@ body {
   /* margin: -8px 0px 0px 38px; */
 }
 
-.strip--left {
+.hex__strip--left {
     grid-row-start: 4;
     grid-row-end: 6;
     grid-column-start: 1;
     grid-column-end: 10;
+
+    margin-right: 3.5rem;
 }
 
 .hex__item--large {
@@ -211,11 +238,13 @@ body {
   /* margin: 34px 50px; */
 }
 
-.strip--right {
+.hex__strip--right {
   grid-row-start: 6;
   grid-row-end: 8;
   grid-column-start: 11;
   grid-column-end: 20;
+
+  margin-left: 3.5rem;
 }
 
 .hex__item--medium--left {
