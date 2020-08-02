@@ -101,6 +101,8 @@ body {
   border: 10px solid white;
   border-radius: 10px;
 
+  cursor: pointer;
+
   transition: all 400ms;
 }
 
@@ -124,7 +126,6 @@ body {
 .hex__item::after {
   transform: rotate(-60deg);
 }
-
 /* выше идёт отрисовка гексагонов */
 
 .hex {
@@ -157,6 +158,11 @@ body {
 .hex__item--medium {
   height: 8.33rem;
   width: 5.3rem;
+}
+
+.hex__item--large {
+  height: 15rem;
+  width: 9rem;
 }
 
 .hex__strip {
@@ -207,8 +213,6 @@ body {
   grid-row-end: 3;
   grid-column-start: 17;
   grid-column-end: 18;
-
-  /* margin: -42px 0px 0px 55px; */
 }
 
 .hex__item--medium--right {
@@ -216,8 +220,6 @@ body {
   grid-row-end: 5;
   grid-column-start: 14;
   grid-column-end: 15;
-
-  /* margin: -8px 0px 0px 38px; */
 }
 
 .hex__strip--left {
@@ -229,13 +231,11 @@ body {
     margin-right: 3.5rem;
 }
 
-.hex__item--large {
+.hex__item--center {
   grid-row-start: 4;
   grid-row-end: 8;
   grid-column-start: 10;
   grid-column-end: 11;
-
-  /* margin: 34px 50px; */
 }
 
 .hex__strip--right {
@@ -252,8 +252,6 @@ body {
   grid-row-end: 10;
   grid-column-start: 6;
   grid-column-end: 7;
-
-  /* margin: -25px 30px 0px 50px; */
 }
 
 .hex__item--mini--left {
@@ -261,8 +259,6 @@ body {
   grid-row-end: 11;
   grid-column-start: 3;
   grid-column-end: 4;
-
-  /* margin: -5px 10px 0px 0px; */
 }
 
 .hex__content {
