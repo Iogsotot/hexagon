@@ -81,16 +81,6 @@ function sliding(event) {
 
 window.onwheel = sliding;
 
-  
-//   hexs[0].onclick = function() {
-//     moveHex("-8.8rem", "4rem", 0, "medium");
-//     moveHex("-15rem", "4.2rem", 1, "large");
-//     moveHex("-11.35rem", "10.7rem", 2, "medium");
-//     moveHex("-7.55rem", "6.35rem", 3, "mini");
-//     hideHex("-15rem", "9rem", 4);
-// }
-
-
 
 function moveHex(xValues, yValues, i, hexSize) {
     translateHex(xValues, yValues, i);
