@@ -386,26 +386,11 @@ body {
 } */
 
 .hex__content {
-  /* display: block; */
   position: absolute;
   transform: translate(-10px, -10px); /*зависит от ширины бордера в hex__item */
   
   height: inherit;
   width: inherit;
-
-  /* vertical-align: center; */
-}
-
-.hex__link {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* vertical-align: baseline; */
-
-  height: inherit;
-  width: inherit;
-
-  margin-top: -0.4rem;
 }
 
 .hex__date {
@@ -415,27 +400,50 @@ body {
   font-stretch: ultra-condensed;
 }
 
-.hex__item--mini .hex__date {
-  font-weight: 400;
-  font-size: 1.24rem;
+.hex__link {
+  display: flex;
+  flex-direction: column;
+
+  height: inherit;
+  width: inherit;
 }
 
+.hex__item--mini .hex__link {
+  height: 6rem;
+  width: 4rem;
+  padding-top: 1.5rem;
+}
+.hex__item--mini .hex__date--month {
+  line-height: 1rem;
+}
+
+.hex__item--medium .hex__link {
+  height: 8.34rem;
+  width: 5.3rem;
+  padding-top: 2.25rem;
+}
+.hex__item--medium .hex__date--month {
+  line-height: 1.5rem;
+  padding-top: 0.05rem;
+}
+
+.hex__item--large .hex__link {
+  height: 15rem;
+  width: 9rem;
+  padding-top: 1.7rem;
+}
 .hex__item--large .hex__date {
   font-weight: 600;
   font-size: 2.4rem;
-
-  padding-top: 0.5rem;
+  padding-top: 0.7rem;
 }
-
-.hex__location {
-  padding-top: 1rem;
+.hex__time {
+  padding-top: 0.1rem;
 }
-
 .hex__location, .hex__time {
   font-size: 1.59rem;
   font-stretch: ultra-condensed;
 }
-
 .button {
   cursor: pointer;
 
@@ -448,10 +456,10 @@ body {
   font-size: 1.1rem;
   
   padding: 0.6rem 0.8rem;
-  margin: 0.5rem auto;
-  margin-top: 1rem;
-}
+  margin: 0.85rem auto 0.6rem;
 
+  transition: all linear 250ms;
+}
 .button:hover {
   background-color: rgba(2, 9, 35, 0.75);
   border-color: white;
@@ -459,9 +467,30 @@ body {
 
   transition: all linear 250ms;
 }
+.button:focus {
+ outline: none;
+ box-shadow: 0 0 0 1px rgb(2, 9, 35);
+ font-weight: bolder;
+}
 
-/* .button:active {
 
-} */
+
+.hex__item--mini .hex__date {
+  font-weight: 400;
+  font-size: 1.24rem;
+}
+
+.hex__item--medium .hex__date {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
 
 
