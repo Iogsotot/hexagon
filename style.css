@@ -473,8 +473,6 @@ body {
  font-weight: bolder;
 }
 
-
-
 .hex__item--mini .hex__date {
   font-weight: 400;
   font-size: 1.24rem;
@@ -483,6 +481,10 @@ body {
 .hex__item--medium .hex__date {
   font-weight: 400;
   font-size: 1.5rem;
+}
+
+.hidden {
+  display: none;
 }
 
 
