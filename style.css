@@ -478,6 +478,10 @@ body {
   font-size: 1.24rem;
 }
 
+.hex__item--mini .hex__date--month {
+  font-size: 1.1rem;
+}
+
 .hex__item--medium .hex__date {
   font-weight: 400;
   font-size: 1.5rem;
