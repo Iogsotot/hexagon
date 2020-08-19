@@ -128,8 +128,18 @@ function changeHexContent(i) {
     if (hexs[i].classList.contains("hex__item--large")) {
         let allHexContent = hexs[i].querySelectorAll(".hex__location, .hex__date--full, .hex__time, .button--buy, .hex__date--day, .hex__date--month");
         allHexContent.forEach(element => {
-            console.log("тоглим")
-            element.classList.toggle("hidden");
+            // console.log("тоглим")
+            // element.classList.toggle("hidden");
+
+            let centralHexContent = hexs[i].querySelectorAll(".hex__location, .hex__date--full, .hex__time, .button--buy");
+            let notCentralHexContent = hexs[i].querySelectorAll(".hex__date--day, .hex__date--month");
+    
+            centralHexContent.forEach(element => {
+                element.classList.remove("hidden");
+            });
+            notCentralHexContent.forEach(element => {
+                element.classList.add("hidden");
+            });
         });
     }
     else if (!hexs[i].classList.contains("hex__item--large")) {
@@ -159,7 +169,7 @@ function flyToCenter(i) {
         wheelCount = -2;
         translateHex("-23.8rem", "8.2rem", i);
         stylizeHex(i, "large");
-        // changeHexContent(i);
+        
 
         translateHex("-26.33rem", "14.95rem", i+1);
         stylizeHex(i+1, "medium");
@@ -170,36 +180,66 @@ function flyToCenter(i) {
         stylizeHex(i+3, "mini");
         hideHex("-115rem", "19rem", i+4);
         stylizeHex(i+4, "mini");
+
+        for (let index = 0; index < hexs.length; index++) {
+            changeHexContent(index);            
+        }
     }
 
     if(i === 1) {
         wheelCount = -1;
-        moveHex("-8.8rem", "4rem", i-1, "medium");
-        moveHex("-15rem", "4.2rem", i, "large");
-        moveHex("-11.35rem", "10.7rem", i+1, "medium");
-        moveHex("-125rem", "115rem", i+2, "mini");
+
+        translateHex("-15rem", "4.2rem", i);
+        stylizeHex(i, "large");
+
+        translateHex("-8.8rem", "4rem", i-1);
+        stylizeHex(i-1, "medium");
+        translateHex("-11.35rem", "10.7rem", i+1);
+        stylizeHex(i+1, "medium");
+
+        translateHex("-125rem", "115rem", i+2);
+        stylizeHex(i+2, "mini");
         showHex("-7.55rem", "6.35rem", i+2);
         hideHex("-115rem", "19rem", i+3);
+        stylizeHex(i+3, "mini");
+
+        for (let index = 0; index < hexs.length; index++) {
+            changeHexContent(index);            
+        }
     }
 
     if(i === 2) {
         wheelCount = 0;
         startStatus();
+        for (let index = 0; index < hexs.length; index++) {
+            changeHexContent(index);            
+        }
     }
 
     if(i === 3) {
         wheelCount = 1;
-        moveHex("7.47rem", "-6.35rem", i+1, "medium");
-        moveHex("11.27rem", "-10.75rem", i, "large");
-        moveHex("15rem", "-4.2rem", i-1, "medium");
-        moveHex("125rem", "-115rem", i-2, "mini");
+ 
+        translateHex("11.27rem", "-10.75rem", i);
+        stylizeHex(i, "large");
+
+        translateHex("7.47rem", "-6.35rem", i+1);
+        stylizeHex(i+1, "medium");
+        translateHex("15rem", "-4.2rem", i-1);
+        stylizeHex(i-1, "medium");
+
+        translateHex("125rem", "-115rem", i-2);
+        stylizeHex(i-2, "mini");
         showHex("8.8rem", "-4rem", i-2);
         hideHex("117rem", "-110rem", i-3);
 
+        for (let index = 0; index < hexs.length; index++) {
+            changeHexContent(index);            
+        }
     }
 
     if(i === 4) {
         wheelCount = 2;
+
         translateHex("18.8rem", "-17.07rem", i);
         stylizeHex(i, "large");
 
@@ -212,5 +252,9 @@ function flyToCenter(i) {
         stylizeHex(i-3, "mini");
         hideHex("117rem", "-110rem", i-4);
         stylizeHex(i-4, "mini");
+
+        for (let index = 0; index < hexs.length; index++) {
+            changeHexContent(index);            
+        }
     }
 }
