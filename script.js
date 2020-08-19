@@ -2,7 +2,7 @@ let hexs = document.querySelectorAll(".hex__item");
 // let latestKnownScrollY = 0;
 let wheelCount = 0;
 
-function sliding(event) {
+function sliding() {
     // event.preventDefault();
     if (event.deltaY >= 0) {
         wheelCount-= 1;
@@ -81,7 +81,6 @@ function sliding(event) {
 
 window.onwheel = sliding;
 
-
 function moveHex(xValues, yValues, i, hexSize) {
     translateHex(xValues, yValues, i);
     stylizeHex(i, hexSize);
@@ -125,10 +124,6 @@ function startStatus() {
     }
 }
 
-
-
-
-
 function changeHexContent(i) {
     if (hexs[i].classList.contains("hex__item--large")) {
         let allHexContent = hexs[i].querySelectorAll(".hex__location, .hex__date--full, .hex__time, .button--buy, .hex__date--day, .hex__date--month");
@@ -150,20 +145,72 @@ function changeHexContent(i) {
     }
 }
 
+// пачка скриптов для работы по клику
 
-// hexs[1].onclick = function() {
-//     moveHex("-8.8rem", "4rem", 0, "medium")
-//     moveHex("-15rem", "4.2rem", 1, "large")
-//     moveHex("-11.35rem", "10.7rem", 2, "medium")
-//     moveHex("-7.55rem", "6.35rem", 3, "mini")
-//     hideHex("-15rem", "9rem", 4);
-// }
+hexs[0].onclick = function () {flyToCenter(0);}
+hexs[1].onclick = function () {flyToCenter(1);}
+hexs[2].onclick = function () {flyToCenter(2);}
+hexs[3].onclick = function () {flyToCenter(3);}
+hexs[4].onclick = function () {flyToCenter(4);}
 
 
-// hexs[0].onclick = function() {
-//     moveHex("-180%", "50%", 0, "medium")
-//     moveHex("-165%", "28%", 1, "large")
-//     moveHex("-200%", "130%", 2, "medium")
-//     moveHex("-180%", "120%", 3, "mini")
-//     hideHex("-180%", "40%", 4);
-// }
+function flyToCenter(i) {
+    if(i === 0) {
+        wheelCount = -2;
+        translateHex("-23.8rem", "8.2rem", i);
+        stylizeHex(i, "large");
+        // changeHexContent(i);
+
+        translateHex("-26.33rem", "14.95rem", i+1);
+        stylizeHex(i+1, "medium");
+        translateHex("-18.08rem", "17.07rem", i+2);
+        stylizeHex(i+2, "mini");
+
+        hideHex("-125rem", "115rem", i+3);
+        stylizeHex(i+3, "mini");
+        hideHex("-115rem", "19rem", i+4);
+        stylizeHex(i+4, "mini");
+    }
+
+    if(i === 1) {
+        wheelCount = -1;
+        moveHex("-8.8rem", "4rem", i-1, "medium");
+        moveHex("-15rem", "4.2rem", i, "large");
+        moveHex("-11.35rem", "10.7rem", i+1, "medium");
+        moveHex("-125rem", "115rem", i+2, "mini");
+        showHex("-7.55rem", "6.35rem", i+2);
+        hideHex("-115rem", "19rem", i+3);
+    }
+
+    if(i === 2) {
+        wheelCount = 0;
+        startStatus();
+    }
+
+    if(i === 3) {
+        wheelCount = 1;
+        moveHex("7.47rem", "-6.35rem", i+1, "medium");
+        moveHex("11.27rem", "-10.75rem", i, "large");
+        moveHex("15rem", "-4.2rem", i-1, "medium");
+        moveHex("125rem", "-115rem", i-2, "mini");
+        showHex("8.8rem", "-4rem", i-2);
+        hideHex("117rem", "-110rem", i-3);
+
+    }
+
+    if(i === 4) {
+        wheelCount = 2;
+        translateHex("18.8rem", "-17.07rem", i);
+        stylizeHex(i, "large");
+
+        translateHex("26.33rem", "-14.95rem", i-1);
+        stylizeHex(i-1, "medium");
+        translateHex("23.8rem", "-8.2rem", i-2);
+        stylizeHex(i-2, "mini");
+
+        hideHex("125rem", "-115rem", i-3);
+        stylizeHex(i-3, "mini");
+        hideHex("117rem", "-110rem", i-4);
+        stylizeHex(i-4, "mini");
+    }
+}
