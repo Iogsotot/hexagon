@@ -7,7 +7,7 @@ function sliding() {
     if (event.deltaY >= 0) {
         wheelCount-= 1;
         if(wheelCount === -1) {
-            console.log("колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
+            // console.log("колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
             moveHex("-8.8rem", "4rem", 0, "medium");
             moveHex("-15rem", "4.2rem", 1, "large");
             moveHex("-11.35rem", "10.7rem", 2, "medium");
@@ -15,36 +15,36 @@ function sliding() {
             hideHex("-115rem", "19rem", 4);
         }
         if (wheelCount === -2) {
-            console.log("колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
+            // console.log("колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
             moveHex("-23.8rem", "8.2rem", 0, "large");
             moveHex("-26.33rem", "14.95rem", 1, "medium");
             moveHex("-18.08rem", "17.07rem", 2, "mini");
             hideHex("-125rem", "115rem", 3);
         }
         if (wheelCount === 1) {
-            console.log("колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
+            // console.log("колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
             moveHex("7.47rem", "-6.35rem", 4, "medium");
             moveHex("11.27rem", "-10.75rem", 3, "large");
             moveHex("15rem", "-4.2rem", 2, "medium");
             showHex("8.8rem", "-4rem", 1);
         }
         if (wheelCount === 0) {
-            console.log("колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
+            // console.log("колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
             startStatus();
         }
         if (wheelCount <= -3) {
             wheelCount = -2;
-            console.log("мы дошли до края, " + "колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
+            // console.log("мы дошли до края, " + "колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
         }
         else {
-            console.log("ERROR: " + "колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
+            // console.log("ERROR: " + "колесо крутят ВНИЗ, " + "счетчик колесика: " + wheelCount);
         }     
     }
     
     else if (event.deltaY < 0) {
         wheelCount+= 1;
         if (wheelCount === 1) {
-            console.log("колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
+            // console.log("колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
             moveHex("7.47rem", "-6.35rem", 4, "medium");
             moveHex("11.27rem", "-10.75rem", 3, "large");
             moveHex("15rem", "-4.2rem", 2, "medium");
@@ -52,26 +52,26 @@ function sliding() {
             hideHex("117rem", "-110rem", 0);
         }
         if (wheelCount === 2) {
-            console.log("колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
+            // console.log("колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
             moveHex("18.8rem", "-17.07rem", 4, "large");
             moveHex("26.33rem", "-14.95rem", 3, "medium");
             moveHex("23.8rem", "-8.2rem", 2, "mini");
             hideHex("125rem", "-115rem", 1);
         }
         if  (wheelCount === -1) {
-            console.log("колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
+            // console.log("колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
             moveHex("-8.8rem", "4rem", 0, "medium");
             moveHex("-15rem", "4.2rem", 1, "large");
             moveHex("-11.35rem", "10.7rem", 2, "medium");
             showHex("-7.55rem", "6.35rem", 3);
         }
         if  (wheelCount === 0) {
-            console.log("колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
+            // console.log("колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
             startStatus();
         }
         if (wheelCount >= 3) {
             wheelCount = 2;
-            console.log("мы дошли до края, " + "колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
+            // console.log("мы дошли до края, " + "колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
         }
         else {
             console.log("ERROR: " + "колесо крутят вверх, " + "счетчик колесика: " + wheelCount);
@@ -105,11 +105,13 @@ function stylizeHex(i, hexSize) {
 
 function hideHex(xValues, yValues, i) {
     translateHex(xValues, yValues, i) 
-    hexs[i].style.visibility = "hidden"; 
+    hexs[i].style.visibility = "hidden";
+    // hexs[i].classList.add("hidden"); 
 }
 
 function showHex(xValues, yValues, i) {
     translateHex(xValues, yValues, i) 
+    // hexs[i].classList.remove("hidden");
     hexs[i].style.visibility = "visible"; 
 }
 
@@ -126,11 +128,10 @@ function startStatus() {
 
 function changeHexContent(i) {
     if (hexs[i].classList.contains("hex__item--large")) {
-        let allHexContent = hexs[i].querySelectorAll(".hex__location, .hex__date--full, .hex__time, .button--buy, .hex__date--day, .hex__date--month");
-        allHexContent.forEach(element => {
-            // console.log("тоглим")
-            // element.classList.toggle("hidden");
-
+        // let allHexContent = hexs[i].querySelectorAll(".hex__location, .hex__date--full, .hex__time, .button--buy, .hex__date--day, .hex__date--month");
+        // allHexContent.forEach(element => {
+        //     element.classList.toggle("hidden");
+        // });
             let centralHexContent = hexs[i].querySelectorAll(".hex__location, .hex__date--full, .hex__time, .button--buy");
             let notCentralHexContent = hexs[i].querySelectorAll(".hex__date--day, .hex__date--month");
     
@@ -139,8 +140,7 @@ function changeHexContent(i) {
             });
             notCentralHexContent.forEach(element => {
                 element.classList.add("hidden");
-            });
-        });
+            });     
     }
     else if (!hexs[i].classList.contains("hex__item--large")) {
         let centralHexContent = hexs[i].querySelectorAll(".hex__location, .hex__date--full, .hex__time, .button--buy");
@@ -157,19 +157,15 @@ function changeHexContent(i) {
 
 // пачка скриптов для работы по клику
 
-hexs[0].onclick = function () {flyToCenter(0);}
-hexs[1].onclick = function () {flyToCenter(1);}
-hexs[2].onclick = function () {flyToCenter(2);}
-hexs[3].onclick = function () {flyToCenter(3);}
-hexs[4].onclick = function () {flyToCenter(4);}
-
+for (let hexIndex = 0; hexIndex < hexs.length; hexIndex++) {
+    hexs[hexIndex].onclick = function () {flyToCenter(hexIndex);}
+}
 
 function flyToCenter(i) {
     if(i === 0) {
         wheelCount = -2;
         translateHex("-23.8rem", "8.2rem", i);
         stylizeHex(i, "large");
-        
 
         translateHex("-26.33rem", "14.95rem", i+1);
         stylizeHex(i+1, "medium");
