@@ -1,5 +1,5 @@
 let hexs = document.querySelectorAll(".hex__item");
-let latestKnownScrollY = 0;
+// let latestKnownScrollY = 0;
 let wheelCount = 0;
 
 function sliding(event) {
@@ -85,6 +85,7 @@ window.onwheel = sliding;
 function moveHex(xValues, yValues, i, hexSize) {
     translateHex(xValues, yValues, i);
     stylizeHex(i, hexSize);
+    changeHexContent(i);
 }
 
 function translateHex(xValues, yValues, i) {
@@ -121,6 +122,31 @@ function startStatus() {
     moveHex("0", "0", 4, "mini");
     for (let index = 0; index < hexs.length; index++) {
         hexs[index].style.visibility = "visible"; 
+    }
+}
+
+
+
+
+
+function changeHexContent(i) {
+    if (hexs[i].classList.contains("hex__item--large")) {
+        let allHexContent = hexs[i].querySelectorAll(".hex__location, .hex__date--full, .hex__time, .button--buy, .hex__date--day, .hex__date--month");
+        allHexContent.forEach(element => {
+            console.log("тоглим")
+            element.classList.toggle("hidden");
+        });
+    }
+    else if (!hexs[i].classList.contains("hex__item--large")) {
+        let centralHexContent = hexs[i].querySelectorAll(".hex__location, .hex__date--full, .hex__time, .button--buy");
+        let notCentralHexContent = hexs[i].querySelectorAll(".hex__date--day, .hex__date--month");
+
+        centralHexContent.forEach(element => {
+            element.classList.add("hidden");
+        });
+        notCentralHexContent.forEach(element => {
+            element.classList.remove("hidden");
+        });
     }
 }
 
